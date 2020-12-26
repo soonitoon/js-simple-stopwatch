@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>StopWatch</title>
+</head>
+<body>
+    <h1>Stop Watch</h1>
+    <div class="stop-watch"></div>
+    <button id="toggle">Start</button>
+    <button id="clear">clear</button>
+    <script src="./app.js"></script>
+    <script>
+        const element = document.querySelector('.stop-watch');
+        const toggleBtn = document.querySelector('#toggle')
+        const clearBtn = document.querySelector('#clear')
+        const stopWatch = new StopWatch(element);
+
+        toggleBtn.addEventListener('click', () => {
+            if (stopWatch.isStart) {
+                stopWatch.stop();
+                toggleBtn.innerHTML = 'Start';
+            } else {
+                stopWatch.start();
+                toggleBtn.innerHTML = 'Stop';
+            }
+        }); 
+
+        clearBtn.addEventListener('click', () => {
+            stopWatch.clear();
+            toggleBtn.innerHTML = 'Start';
+        });
+    </script>
+</body>
+</html>
